@@ -203,8 +203,7 @@ It contains the routing rules that allow communication within the VPC and outbou
 ### Public Route Table
 
 The screenshot below shows the Public Route Table created by CloudFormation.
-
-![Public Route Table](cloudformation-PublicRT.png)
+![Route Table](cloudformation-RT.png)
 
 ---
 
@@ -217,7 +216,8 @@ The Route Table contains the following routes:
 
 The screenshot below shows the routing configuration.
 
-![Route Table](cloudformation-RT.png)
+![Public Route Table](cloudformation-PublicRT.png)
+
 
 ---
 
