@@ -1,41 +1,53 @@
-# AWS VPC Deployment Using AWS CloudFormation
+# 🚀 AWS VPC Deployment Using AWS CloudFormation
 
-## Project Overview
-
-This project demonstrates how to automate the deployment of an AWS Virtual Private Cloud (VPC) using AWS CloudFormation.
-
-Rather than manually provisioning networking resources through the AWS Management Console, the entire infrastructure is deployed from a single YAML template using Infrastructure as Code (IaC). This approach improves consistency, reduces manual effort, and makes the infrastructure easier to manage and reproduce.
-
-The CloudFormation template provisions a complete networking environment, including a VPC, Internet Gateway, Public and Private Subnets, Route Table, Internet Route, and Route Table Association, following AWS networking best practices.
+Automated deployment of an AWS Virtual Private Cloud (VPC) using AWS CloudFormation and Infrastructure as Code (IaC).
 
 ---
 
-## Project Objectives
+## 📖 Project Overview
 
-This project was completed to achieve the following objectives:
+This project demonstrates how to deploy an AWS Virtual Private Cloud (VPC) using AWS CloudFormation.
 
-- Understand Infrastructure as Code (IaC) using AWS CloudFormation.
-- Automate the deployment of AWS networking resources.
-- Create and configure an Amazon VPC.
-- Deploy both Public and Private Subnets.
-- Configure Internet connectivity using an Internet Gateway.
-- Implement routing using Route Tables.
-- Gain practical experience deploying AWS infrastructure from a YAML template.
+Instead of manually creating networking resources through the AWS Management Console, the entire infrastructure is provisioned from a single YAML template using Infrastructure as Code (IaC). This approach improves consistency, automation, and repeatability while following AWS networking best practices.
 
----
+The CloudFormation template provisions:
 
-## AWS Services Used
-
-- AWS CloudFormation
 - Amazon VPC
 - Internet Gateway
-- Route Tables
 - Public Subnet
 - Private Subnet
+- Public Route Table
+- Internet Route
+- Route Table Association
 
 ---
 
-## Technologies Used
+## 🎯 Project Objectives
+
+- Learn Infrastructure as Code (IaC) using AWS CloudFormation.
+- Automate AWS networking deployment.
+- Create a secure Amazon VPC.
+- Configure Public and Private Subnets.
+- Configure Internet connectivity.
+- Implement Route Tables and Route Table Associations.
+- Gain hands-on experience deploying infrastructure from code.
+
+---
+
+## 🛠 AWS Services Used
+
+| Service | Purpose |
+|---------|---------|
+| AWS CloudFormation | Infrastructure as Code |
+| Amazon VPC | Virtual Network |
+| Internet Gateway | Internet Connectivity |
+| Route Table | Traffic Routing |
+| Public Subnet | Internet-facing Resources |
+| Private Subnet | Internal Resources |
+
+---
+
+## 💻 Technologies Used
 
 - AWS CloudFormation
 - YAML
@@ -43,9 +55,7 @@ This project was completed to achieve the following objectives:
 
 ---
 
-## Resources Created
-
-The CloudFormation template automatically provisions the following AWS resources:
+## 📦 Resources Created
 
 - Amazon VPC
 - Internet Gateway
@@ -58,174 +68,126 @@ The CloudFormation template automatically provisions the following AWS resources
 
 ---
 
-## Deployment Steps
+# 🚀 Deployment
 
-1. Sign in to the AWS Management Console.
-2. Open the **AWS CloudFormation** service.
-3. Select **Create Stack**.
-4. Choose **With new resources (Standard)**.
-5. Upload the `vpc_template.yaml` file.
-6. Provide a stack name (for example, `first-vpc-stack`).
-7. Configure any required stack options or tags.
-8. Review the configuration.
-9. Click **Submit** to begin deployment.
-10. Wait until the stack status changes to **CREATE_COMPLETE**.
+## Step 1 — Create the CloudFormation Stack
+
+Upload the **vpc_template.yaml** file to CloudFormation to begin deployment.
+
+![Create Stack](screenshots/stack_1.png)
 
 ---
 
-## Verification
+## Step 2 — Configure the Stack
 
-After the deployment completed successfully, the following resources were verified:
+Provide the stack name and review the deployment configuration.
 
-- The VPC was created successfully.
-- The Internet Gateway was attached to the VPC.
-- The Public and Private Subnets were created.
-- The Route Table contains:
-  - `10.0.0.0/16 → Local`
-  - `0.0.0.0/0 → Internet Gateway`
-- The Public Subnet is associated with the Public Route Table.
-- The CloudFormation stack status is **CREATE_COMPLETE**.
+![Configure Stack](screenshots/stack_2.png)
 
 ---
 
-# CloudFormation Deployment
+## Step 3 — Deployment Completed
 
-The screenshots below illustrate the complete CloudFormation deployment process, from uploading the template to successfully provisioning the infrastructure.
+CloudFormation successfully created every resource defined in the template.
 
-## Step 1 – Create the Stack
-
-The CloudFormation template (`vpc_template.yaml`) was uploaded to begin the deployment.
-
-![Create Stack](stack_1.png)
+![Stack Created](screenshots/stack_3.png)
 
 ---
 
-## Step 2 – Configure the Stack
+# 📋 CloudFormation Resources
 
-The stack name and deployment settings were configured before starting the deployment.
+After deployment, CloudFormation automatically created all resources defined in the template.
 
-![Configure Stack](stack_2.png)
+## Resources
 
----
-
-## Step 3 – Deployment Completed
-
-The deployment completed successfully with a **CREATE_COMPLETE** status, confirming that all resources defined in the template were provisioned successfully.
-
-![Stack Created Successfully](stack_3.png)
-
----
-
-# CloudFormation Resources
-
-Once deployment was complete, CloudFormation created all the resources defined in the template.
-
-The **Resources** tab provides information about each deployed resource, including its Logical ID, Physical ID, resource type, and deployment status.
-
-## Resources Created
-
-The screenshot below displays all resources created during deployment.
-
-![CloudFormation Resources](cloudformation_resources.png)
+![CloudFormation Resources](screenshots/cloudformation_resources.png)
 
 ---
 
 ## Resource Details
 
-This view provides additional information about each deployed resource, confirming that every resource was created successfully.
-
-![CloudFormation Resources Details](cloudformation_resources2.png)
+![CloudFormation Resource Details](screenshots/cloudformation_resources2.png)
 
 ---
 
-# Stack Outputs
+# 📤 Stack Outputs
 
-The **Outputs** section displays values exported by the CloudFormation template after deployment.
+The Outputs section provides useful information exported after the deployment completed successfully.
 
-These outputs provide quick access to important resource information and can also be referenced by other CloudFormation stacks when building larger infrastructures.
-
-![Stack Outputs](cloudformation-output.png)
+![Stack Outputs](screenshots/cloudformation-output.png)
 
 ---
 
-# Resource Verification
+# 🌐 Resource Verification
 
 ## Amazon VPC
 
-The Amazon Virtual Private Cloud (VPC) forms the foundation of the networking infrastructure.
-
-It was created with the CIDR block **10.0.0.0/16**, providing a private IP address range that can be divided into multiple subnets. DNS Resolution and DNS Hostnames were enabled to support name resolution and hostname assignment within the VPC.
+The Amazon VPC provides the isolated network where all resources are deployed.
 
 ### VPC Overview
 
-The screenshot below shows the VPC created by the CloudFormation template.
-
-![Amazon VPC](cloudformation-vpc.png)
-
----
+![Amazon VPC](screenshots/cloudformation-vpc.png)
 
 ### VPC Details
 
-The following screenshot confirms the VPC configuration, including its CIDR block, DNS settings, and associated resource information.
-
-![VPC Details](cloudformation-vpc2.png)
+![VPC Details](screenshots/cloudformation-vpc2.png)
 
 ---
 
 ## Internet Gateway
 
-The Internet Gateway provides connectivity between the VPC and the public Internet.
-
-It was attached to the VPC using a **VPC Gateway Attachment**, allowing resources in the Public Subnet to communicate with external networks through the configured Route Table.
+The Internet Gateway enables communication between the VPC and the Internet.
 
 ### Internet Gateway Overview
 
-The screenshot below shows the Internet Gateway created by CloudFormation.
-
-![Internet Gateway](cloudformation-igw.png)
-
----
+![Internet Gateway](screenshots/cloudformation-igw.png)
 
 ### Internet Gateway Details
 
-The following screenshot confirms that the Internet Gateway was successfully attached to the VPC.
-
-![Internet Gateway Details](cloudformation-igw2.png)
+![Internet Gateway Details](screenshots/cloudformation-igw2.png)
 
 ---
 
 ## Public Route Table
 
-A custom Public Route Table was created to control network traffic for the Public Subnet.
+The Public Route Table manages network traffic for the Public Subnet.
 
-It contains the routing rules that allow communication within the VPC and outbound Internet connectivity through the Internet Gateway.
-
-### Public Route Table
-
-The screenshot below shows the Public Route Table created by CloudFormation.
-![Route Table](cloudformation-RT.png)
+![Public Route Table](screenshots/cloudformation-PublicRT.png)
 
 ---
 
 ## Route Table Routes
 
-The Route Table contains the following routes:
+The Route Table contains:
 
-- **10.0.0.0/16 → Local** for communication between resources inside the VPC.
-- **0.0.0.0/0 → Internet Gateway** for outbound Internet traffic.
-
-The screenshot below shows the routing configuration.
-
-![Public Route Table](cloudformation-PublicRT.png)
+- **10.0.0.0/16 → Local**
+- **0.0.0.0/0 → Internet Gateway**
 
 
 ---
 
-## Public and Private Subnets
+## Public & Private Subnets
 
-The CloudFormation template created two subnets within the VPC:
+The CloudFormation template created two subnets:
 
-- **Public Subnet (10.0.1.0/24)** – Intended for resources that require Internet connectivity.
-- **Private Subnet (10.0.2.0/24)** – Intended for internal resources that should remain isolated from direct Internet access.
+| Public Subnet | Private Subnet |
+|---------------|----------------|
+| CIDR: 10.0.1.0/24 | CIDR: 10.0.2.0/24 |
+| Internet Access | No Direct Internet Access |
+| Associated with Public Route Table | Uses Local Route |
 
-The Public Route Table was associated with the Public Subnet, enabling outbound Internet access through the Internet Gateway, while the Private Subnet remained isolated from direct Internet connectivity.
+---
+
+# ✅ Verification Checklist
+
+- ✔️ VPC created successfully
+- ✔️ Internet Gateway attached
+- ✔️ Public Subnet created
+- ✔️ Private Subnet created
+- ✔️ Route Table created
+- ✔️ Internet Route configured
+- ✔️ Route Table Association completed
+- ✔️ CloudFormation Stack status: **CREATE_COMPLETE**
+
+---
+
